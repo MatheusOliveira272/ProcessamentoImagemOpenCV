@@ -1,12 +1,12 @@
-O programa apresentado é im sistema em Java para edição de imagem utilizando recursos do OpenCv, que é  é uma biblioteca popular de visão computacional para desenvolver aplicativos construídos em C++ e C.
-Ela tem vários usos, como detecção de objetos e processamento de vídeo. 
-
+O programa apresentado é um sistema desenvolvido em Java para edição de imagens, fazendo uso dos recursos oferecidos pelo OpenCV.
+O OpenCV é uma biblioteca popular de visão computacional amplamente utilizada para desenvolver aplicativos em C++ e C. 
+Entre seus diversos usos, destacam-se a detecção de objetos e o processamento de vídeo.
 
 .....
-Para executar corretamente o programa acima após baixá-lo é necessário descompactar os arquivos .dll do OpenCV.
-OS arquivos foram compacrtados para maior facilidade no momento da realização do push e pull visto que são arquivos grandes com mais de 100MB. 
+Para executar corretamente o programa após o download, é necessário descompactar os arquivos .dll do OpenCV. 
+Esses arquivos foram compactados para facilitar as operações de push e pull, pois são arquivos grandes, com mais de 100MB.
 
-Eles se encontram em:
+Os arquivos .dll do OpenCV podem ser encontrados nos seguintes diretórios:
 
         ProcessamentoImagem\src\main\resources\opencv
          
