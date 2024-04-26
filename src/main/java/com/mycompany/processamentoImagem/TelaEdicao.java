@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.esquentava2;
+package com.mycompany.processamentoImagem;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -97,6 +97,7 @@ public class TelaEdicao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jLabel1PropertyChange(evt);
@@ -220,7 +221,7 @@ public class TelaEdicao extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Restalrar Tudo");
+        jButton8.setText("Restaurar Tudo");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -373,8 +374,8 @@ public class TelaEdicao extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         OpenCV.loadLocally();
 
-        String imagePath = imageEditando.getPath();//2304
-        Mat image = Imgcodecs.imread(imagePath);//2304
+        String imagePath = imageEditando.getPath();
+        Mat image = Imgcodecs.imread(imagePath);
         // Obtém a largura e altura inseridas pelo usuário
         int larguraDesejada = Integer.parseInt(jTextField1.getText());
         int alturaDesejada = Integer.parseInt(jTextField2.getText());
@@ -389,14 +390,6 @@ public class TelaEdicao extends javax.swing.JFrame {
         // Calcula a nova largura e altura mantendo a proporção original
         int novaLargura, novaAltura;
 
-        //isso era para cortar proporcional mas não faz sentido na lógica que quero...
-        //        if (larguraDesejada / alturaDesejada > proporcaoOriginal) {
-        //            novaLargura = (int) (alturaDesejada * proporcaoOriginal);
-        //            novaAltura = alturaDesejada;
-        //        } else {
-        //            novaLargura = larguraDesejada;
-        //            novaAltura = (int) (larguraDesejada / proporcaoOriginal);
-        //        }
         // Calcula as coordenadas x e y com base na nova largura e altura
         int x = (larguraOriginal - larguraDesejada) / 2; // Centraliza horizontalmente
         int y = (alturaOriginal - alturaDesejada) / 2; // Centraliza verticalmente
@@ -419,11 +412,8 @@ public class TelaEdicao extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
         OpenCV.loadLocally();
-
-        //        String imagePath = arquivo.getPath();
-        //        Mat image = Imgcodecs.imread(imagePath);
-        String imagePath = imageEditando.getPath();//2304
-        Mat image = Imgcodecs.imread(imagePath);//2304
+        String imagePath = imageEditando.getPath();
+        Mat image = Imgcodecs.imread(imagePath);
         Mat imageEspelhada = new Mat();
         Core.flip(image, imageEspelhada, WIDTH);
         try {
@@ -436,8 +426,6 @@ public class TelaEdicao extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         OpenCV.loadLocally();
-
-        //        String imagePath = arquivo.getPath();
         String imagePath = imageEditando.getPath();
         Mat image = Imgcodecs.imread(imagePath);
 
@@ -480,11 +468,8 @@ public class TelaEdicao extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         OpenCV.loadLocally();
-
-        //        String imagePath = arquivo.getPath();
-        //        Mat image = Imgcodecs.imread(imagePath);
-        String imagePath = imageEditando.getPath();//2304
-        Mat image = Imgcodecs.imread(imagePath);//2304
+        String imagePath = imageEditando.getPath();
+        Mat image = Imgcodecs.imread(imagePath);
         Mat grayImage = new Mat();
         Imgproc.cvtColor(image, grayImage, Imgproc.COLOR_BGR2GRAY);
         try {
@@ -501,7 +486,7 @@ public class TelaEdicao extends javax.swing.JFrame {
         var result = jFileChooser.showOpenDialog(this); // abrir o filechooser e esperar um resultado
         if (JFileChooser.APPROVE_OPTION == result) {
             arquivo = jFileChooser.getSelectedFile();
-            imageEditando = jFileChooser.getSelectedFile();//2304
+            imageEditando = jFileChooser.getSelectedFile();
             ImageIcon imageIcon = new ImageIcon(arquivo.toString());
             jLabel1.setIcon(imageIcon);
 
@@ -518,11 +503,8 @@ public class TelaEdicao extends javax.swing.JFrame {
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
 
         OpenCV.loadLocally();
-
-        //        String imagePath = arquivo.getPath();
-        //        Mat image = Imgcodecs.imread(imagePath);
-        String imagePath = imageEditando.getPath();//2304
-        Mat image = Imgcodecs.imread(imagePath);//2304
+        String imagePath = imageEditando.getPath();
+        Mat image = Imgcodecs.imread(imagePath);
         Mat image2 = new Mat();
         var tamanho = Integer.valueOf(jSlider1.getValue());
         if (tamanho == 50) {
@@ -533,9 +515,9 @@ public class TelaEdicao extends javax.swing.JFrame {
             }
         } else {
             var largura = image.height();
-            var novalarguraPixel = largura * tamanho / 100;
+            var novalarguraPixel = largura * tamanho / 50;
             var altura = image.width();
-            var novaAlturaPixel = altura * tamanho / 100;
+            var novaAlturaPixel = altura * tamanho / 50;
 
             Imgproc.resize(image, image2, new Size(novaAlturaPixel, novalarguraPixel), 0, 0, Imgproc.INTER_AREA);
 
@@ -552,6 +534,7 @@ public class TelaEdicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
         int confirmacao = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja "
                 + "desfazer todas as edições?", "Confirmação", JOptionPane.YES_NO_OPTION);
         if (confirmacao == JOptionPane.YES_OPTION) {
