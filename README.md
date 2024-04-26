@@ -7,8 +7,8 @@ Para executar corretamente o programa acima após baixá-lo é necessário desco
 OS arquivos foram compacrtados para maior facilidade no momento da realização do push e pull visto que são arquivos grandes com mais de 100MB. 
 
 Eles se encontram em: 
-          ProcessamentoImagem\src\main\resources\opencv
-          ProcessamentoImagem\target\classes\opencv
+         -- ProcessamentoImagem\src\main\resources\opencv
+         -- ProcessamentoImagem\target\classes\opencv
 
 .....
 
