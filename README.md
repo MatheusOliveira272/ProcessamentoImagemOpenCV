@@ -14,4 +14,7 @@ Os arquivos .dll do OpenCV podem ser encontrados nos seguintes diretórios:
 
 .....
 
+OBS: É importante que o nome da imagem escolhida não tenha espaços.
+
+
     -- Matheus Oliveira
