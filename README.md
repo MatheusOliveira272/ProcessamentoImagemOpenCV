@@ -3,6 +3,7 @@ O OpenCV é uma biblioteca popular de visão computacional amplamente utilizada 
 Entre seus diversos usos, destacam-se a detecção de objetos e o processamento de vídeo.
 
 .....
+
 Para executar corretamente o programa após o download, é necessário descompactar os arquivos .dll do OpenCV. 
 Esses arquivos foram compactados para facilitar as operações de push e pull, pois são arquivos grandes, com mais de 100MB.
 
